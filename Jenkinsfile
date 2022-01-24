@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('print finish') {
+      steps {
+        echo 'Fiinito'
+      }
+    }
+
   }
 }
