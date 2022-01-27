@@ -12,13 +12,20 @@ pipeline {
         echo 'Fiinito'
       }
     }
-    post {
-       script {
-          sh """
-          val=${BUILD_URL}/consoleText
-          echo $val
-          """
+  }
+  
+  post {
+        always {
+            script {
+              sh """
+              val=${BUILD_URL}/consoleText
+              echo $val
+              """
+            }
+        }
+        
+        failure {
+            echo "fail"
         }
     }
-  }
 }
