@@ -12,6 +12,12 @@ pipeline {
         echo 'Fiinito'
       }
     }
-
+    post {
+       script {
+          sh '''#!/bin/tcsh -f
+          val=${BUILD_URL}/consoleText
+          echo $val
+        }
+    }
   }
 }
