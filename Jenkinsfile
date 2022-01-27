@@ -14,9 +14,10 @@ pipeline {
     }
     post {
        script {
-          sh '''#!/bin/tcsh -f
+          sh """
           val=${BUILD_URL}/consoleText
           echo $val
+          """
         }
     }
   }
