@@ -18,7 +18,7 @@ pipeline {
         always {
             script {
               sh """
-              val=${BUILD_URL}/consoleText
+              val=$(${BUILD_URL}/consoleText)
               echo $val
               """
             }
