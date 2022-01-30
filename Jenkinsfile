@@ -17,6 +17,7 @@ pipeline {
   post {
         always {
             script {
+              echo "in post###"
               def logContent = Jenkins.getInstance()
                 .getItemByFullName(env.JOB_NAME)
                 .getBuildByNumber(
@@ -26,10 +27,6 @@ pipeline {
               // writeFile file: "buildlog.txt", text: logContent
               echo $logContent
             }
-        }
-        
-        failure {
-            echo "fail"
         }
     }
 }
