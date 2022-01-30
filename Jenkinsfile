@@ -24,7 +24,9 @@ pipeline {
             .logFile.text
             // copy the log in the job's own workspace
             // writeFile file: "buildlog.txt", text: logContent
-            echo logContent.contains("Fii")
+            def idx = logContent.indexOf("Fii")
+            echo idx
+
           }
 
         }
