@@ -25,7 +25,7 @@ pipeline {
             // copy the log in the job's own workspace
             // writeFile file: "buildlog.txt", text: logContent
             def idx1 = logContent.indexOf("Fii")
-            def idx2 = logContent.indexOf("to")
+            def idx2 = logContent.indexOf("to", idx1)
             def x = logContent.substring(idx1, idx2)
             echo x
 
