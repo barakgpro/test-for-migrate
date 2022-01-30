@@ -12,11 +12,10 @@ pipeline {
         echo 'Fiinito'
       }
     }
-  }
-  
-  post {
-        always {
-            script {
+    
+    stage('parse log') {
+      steps {
+        script {
               echo "in post###"
               def logContent = Jenkins.getInstance()
                 .getItemByFullName(env.JOB_NAME)
@@ -27,6 +26,6 @@ pipeline {
               // writeFile file: "buildlog.txt", text: logContent
               echo $logContent
             }
+         }
         }
-    }
-}
+      }
