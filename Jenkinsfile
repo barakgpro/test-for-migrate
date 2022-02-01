@@ -12,9 +12,10 @@ pipeline {
         echo 'Fiinito'
       }
     }
+    }
 
-    stage('parse log') {
-      steps {
+post{
+    always {
         script {
           echo "in post###"
           def logContent = Jenkins.getInstance()
@@ -30,9 +31,6 @@ pipeline {
             echo x
 
           }
-
-        }
-      }
-
     }
-  }
+}
+}
