@@ -38,7 +38,7 @@ post{
                 def idx1 = logContent.indexOf("sfr-")   
                 def idx2 = logContent.indexOf("\n", idx1)
                 def sfr_id = logContent.substring(idx1, idx2)
-                echo 'removing ' $sfr_id
+                echo 'removing ${sfr_id}' 
 
                 // actual code
                 // def idx1 = logContent.indexOf("sfr-")   
@@ -49,6 +49,7 @@ post{
               }
               catch(Exception ex) {
                 echo "all spots closed" 
+                break
               }
 
               
