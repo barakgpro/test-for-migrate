@@ -35,10 +35,12 @@ post{
             while (true) {
               try {
                 // test
-                def idx1 = logContent.indexOf("sfr-")   
+                curr_idx = 0
+                def idx1 = logContent.indexOf("sfr-", curr_idx)   
                 def idx2 = logContent.indexOf("\n", idx1)
                 def sfr_id = logContent.substring(idx1, idx2)
                 echo 'removing ${sfr_id}' 
+                curr_idx = idx2
 
                 // actual code
                 // def idx1 = logContent.indexOf("sfr-")   
