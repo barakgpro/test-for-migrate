@@ -32,9 +32,9 @@ post{
             // def idx1 = logContent.indexOf("Fii")
             // def idx2 = logContent.indexOf("to", idx1)
 
-            // while (true) {
             def curr_idx = 0
-            for ( i in 0..5)
+            while (true) {
+            // for ( i in 0..5)
               try {
                 // test
                 def idx1 = logContent.indexOf('sfr-', curr_idx)   
@@ -62,4 +62,3 @@ post{
           }
     }
 }
-
