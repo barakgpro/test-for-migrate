@@ -3,13 +3,18 @@ pipeline {
   stages {
     stage('print message') {
       steps {
-        echo 'test123'
+        echo 'step 1'
+        echo 'sfr-12345-12345-12345-12345-12345'
+        echo 'sfr-12345-12345-12345-12345-12346'
+        echo 'sfr-12345-12345-12345-12345-12347'
       }
     }
 
     stage('print finish') {
       steps {
-        echo 'Fiinito'
+        echo 'step 2'
+        echo 'sfr-12345-12345-12345-12345-12345'
+        echo 'steps finish'
       }
     }
     }
@@ -17,7 +22,6 @@ pipeline {
 post{
     always {
         script {
-          echo "in post###"
           def logContent = Jenkins.getInstance()
           .getItemByFullName(env.JOB_NAME)
           .getBuildByNumber(
@@ -25,10 +29,31 @@ post{
             .logFile.text
             // copy the log in the job's own workspace
             // writeFile file: "buildlog.txt", text: logContent
-            def idx1 = logContent.indexOf("Fii")
-            def idx2 = logContent.indexOf("to", idx1)
-            def x = logContent.substring(idx1, idx2)
-            echo x
+            // def idx1 = logContent.indexOf("Fii")
+            // def idx2 = logContent.indexOf("to", idx1)
+
+            while (true) {
+              try {
+                // test
+                def idx1 = logContent.indexOf("sfr-")   
+                def idx2 = logContent.indexOf("\n", idx1)
+                def sfr_id = logContent.substring(idx1, idx2)
+                echo 'removing ' $sfr_id
+
+                // actual code
+                // def idx1 = logContent.indexOf("sfr-")   
+                // def idx2 = logContent.indexOf("\n", idx1)
+                // def sfr_id = logContent.substring(idx1, idx2)
+                // sfm remove --$sfr_id
+                
+              }
+              catch(Exception ex) {
+                echo "all spots closed" 
+              }
+
+              
+            }
+            
 
           }
     }
