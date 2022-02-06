@@ -33,10 +33,10 @@ post{
             // def idx2 = logContent.indexOf("to", idx1)
 
             // while (true) {
+            def curr_idx = 0
             for ( i in 0..5)
               try {
                 // test
-                def curr_idx = 0
                 def idx1 = logContent.indexOf('sfr-', curr_idx)   
                 def idx2 = logContent.indexOf('\n', idx1)
                 def sfr_id = logContent.substring(idx1, idx2)
