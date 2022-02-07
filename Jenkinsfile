@@ -22,7 +22,7 @@ pipeline {
 post{
     always {
         script {
-          sh """
+          sh ('
           # Set workspace directory
           set work_area = "/home/barakg/temp/"
           mkdir $work_area
@@ -38,7 +38,8 @@ post{
           echo "\\033[32m"-INFO- PROTEUS_TOOL = $PROTEUS_TOOL"\\033[m"
         
           setenv PROTEUS_SFM /data/tools/proteus_sfm/v3.0.0_pre_release_2
-          """
+          ')
+              
           def logContent = Jenkins.getInstance()
           .getItemByFullName(env.JOB_NAME)
           .getBuildByNumber(
@@ -52,7 +53,7 @@ post{
                 def idx2 = logContent.indexOf('\n', idx1)
                 def sfr_id = logContent.substring(idx1, idx2)
                 echo "removing ${sfr_id}"
-                sfm remove --uid $sfr_id
+                sh 'sfm remove --uid $sfr_id'
                 curr_idx = idx2
               }
               catch(Exception ex) {
