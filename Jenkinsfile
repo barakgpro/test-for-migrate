@@ -22,7 +22,7 @@ pipeline {
 post{
     always {
         script {
-          sh ("""
+          sh '''#!/bin/tcsh -f
           # Set workspace directory
           set work_area = "/home/barakg/temp/"
           mkdir $work_area
@@ -38,7 +38,7 @@ post{
           echo "\\033[32m"-INFO- PROTEUS_TOOL = $PROTEUS_TOOL"\\033[m"
         
           setenv PROTEUS_SFM /data/tools/proteus_sfm/v3.0.0_pre_release_2
-          """)
+          '''
               
           def logContent = Jenkins.getInstance()
           .getItemByFullName(env.JOB_NAME)
