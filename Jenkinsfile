@@ -4,7 +4,7 @@ pipeline {
     stage('print message') {
       steps {
         echo 'step 1'
-        echo 'sfr-12345-12345-12345-12345-12345'
+        echo 'sfr-36e9424f-3664-4e80-bee9-1c227a1d1c31'
         echo 'sfr-12345-12345-12345-12345-12346'
         sleep 60
         echo 'sfr-12345-12345-12345-12345-12347'
