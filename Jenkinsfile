@@ -23,7 +23,7 @@ post{
     always {
         script {
           sh """
-          echo "\\033[32m"-INFO- Running Regression on branch $BRANCH  "\\033[m"
+          # echo "\\033[32m"-INFO- Running Regression on branch $BRANCH  "\\033[m"
 
           # Set workspace directory
           set work_area = "/home/barakg/temp/"
