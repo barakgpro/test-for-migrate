@@ -24,7 +24,7 @@ post{
         script {
           sh '''
           # Set workspace directory
-          set work_area = "/home/barakg/temp/"
+          set work_area = "/var/jenkins_home/$env.BUILD_NUMBER"
           mkdir $work_area
           echo "\\033[32m"-INFO- work area $work_area  "\\033[m"
 
