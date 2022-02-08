@@ -22,7 +22,7 @@ pipeline {
 post{
     always {
         script {
-          sh '''#!/bin/tcsh -f
+          sh '''
           # Set workspace directory
           set work_area = "/home/barakg/temp/"
           mkdir $work_area
