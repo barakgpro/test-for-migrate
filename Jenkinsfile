@@ -25,8 +25,7 @@ post{
           def build_num = env.BUILD_NUMBER
           sh '''
           # Set workspace directory
-          set work_area = "/var/jenkins_home/$build_num"
-          mkdir $work_area
+          set work_area = "/var/jenkins_home"
           echo "\\033[32m"-INFO- work area $work_area  "\\033[m"
 
           setenv PTOOLS_CONFIG "/data/tools_cfgs"
