@@ -22,7 +22,7 @@ pipeline {
 post{
     always {
         script {
-          def build_num = $env.BUILD_NUMBER
+          def build_num = env.BUILD_NUMBER
           sh '''
           # Set workspace directory
           set work_area = "/var/jenkins_home/$build_num"
